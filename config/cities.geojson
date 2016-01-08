@@ -217,6 +217,23 @@
           30.265108
         ]
       }
+    },
+    {
+      "id": "novi-sad",
+      "type": "Feature",
+      "properties": {
+        "title": "Novi Sad",
+        "state": "NS",
+        "background": "novisad.jpg",
+        "zoom": 11
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.833550,
+          45.267135
+        ]
+      }
     }
   ]
 }
