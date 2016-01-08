@@ -2,6 +2,10 @@ $(document).ready(function() {
   app.hookupMap();
   app.hookupSteps();
   app.hideSteps();
+
+  $('select.opt-choice').on('change', function(e){
+    $('.enter-city').toggleClass('hidden', $(this).val() == 'yes');
+  });
 });
 
 var app = app || {};
