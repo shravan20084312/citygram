@@ -234,6 +234,22 @@
           45.267135
         ]
       }
+    },l
+    {
+        "id": "manchester",
+        "type": "Feature",
+        "properties": {
+         "title": "Manchester",
+         "background": "manchester.jpg",
+         "zoom": 11
+        },
+        "geometry": {
+         "type": "Point",
+         "coordinates": [
+           -2.2333,
+           53.4667
+         ]
+        }
     }
   ]
 }
