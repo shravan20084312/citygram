@@ -10,7 +10,9 @@ module Citygram::Models
       :phone_number,
       :webhook_url,
       :geom,
-      :publisher_id
+      :publisher_id,
+      :local_resident_sw,
+      :non_local_resident_location
 
     plugin :email_validation
     plugin :geometry_validation

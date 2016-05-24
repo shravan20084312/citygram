@@ -31,26 +31,26 @@
   <div class="row">
     <div class="publishers col-xs-offset-1 col-md-offset-1 col-md-11">
       <!--[if lt IE 10]>
-      <p class="alert alert-danger">You are using an older browser that is not currently supported. <a href="http://whatbrowser.org/">Upgrade your browser today</a> to fully use the site.</p>
+          <p class="alert alert-danger">You are using an older browser that is not currently supported. <a href="http://whatbrowser.org/">Upgrade your browser today</a> to fully use the site.</p>
       <![endif]-->
       <% @publishers.each do |publisher| %>
-          <div class="publisher <%= 'soon' unless publisher.active %>"
-               data-publisher-event-display-endpoint="<%= publisher.event_display_endpoint %>"
-               data-publisher-events-are-polygons="<%= publisher.events_are_polygons %>"
-               data-publisher-id="<%= publisher.id %>"
-               data-publisher-title="<%= publisher.title %>"
-               data-publisher-city="<%= publisher.city %>"
-               data-publisher-state="<%= publisher.state %>">
-            <div class="publisher-topic">
-              <div class="title"><%= publisher.title %></div>
-              <img src="<%= asset_path "publishers/icons/#{publisher.icon}" %>">
-            </div>
-            <div class="publisher-description">
-              <div class="definition"><strong><%= publisher.title %>:</strong> <%= publisher.description %></div>
-              <br>
-              <button type="button" class="publisher-btn btn btn-info btn-lg">choose</button>
-            </div>
+        <div class="publisher <%= 'soon' unless publisher.active %>"
+          data-publisher-event-display-endpoint="<%= publisher.event_display_endpoint %>"
+          data-publisher-events-are-polygons="<%= publisher.events_are_polygons %>"
+          data-publisher-id="<%= publisher.id %>"
+          data-publisher-title="<%= publisher.title %>"
+          data-publisher-city="<%= publisher.city %>"
+          data-publisher-state="<%= publisher.state %>">
+          <div class="publisher-topic">
+            <div class="title"><%= publisher.title %></div>
+            <img src="<%= asset_path "publishers/icons/#{publisher.icon}" %>">
           </div>
+          <div class="publisher-description">
+            <div class="definition"><strong><%= publisher.title %>:</strong> <%= publisher.description %></div>
+            <br>
+            <button type="button" class="publisher-btn btn btn-info btn-lg">choose</button>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>
@@ -66,11 +66,11 @@
 
   <div class="row">
     <form id="geolocateForm" role="form">
-      <div class="col-xs-offset-1 col-xs-10 col-md-offset-1 col-md-5">
-        <input type="text" id="geolocate" placeholder="Your address"></input>
-      </div>
+        <div class="col-xs-offset-1 col-xs-10 col-md-offset-1 col-md-5">
+          <input type="text" id="geolocate" placeholder="Your address"></input>
+        </div>
 
-      <div class="col-xs-offset-1 col-md-offset-0 col-xs-10 col-md-5">
+        <div class="col-xs-offset-1 col-md-offset-0 col-xs-10 col-md-5">
           <span class="bigSelect">
             <select id="user-selected-radius">
               <option value="0.1">Within a 1/10 mile (about a stone's throw)</option>
@@ -83,41 +83,41 @@
               <span class="caret"></span>
             </select>
           </span>
-      </div>
+        </div>
     </form>
   </div>
 
   <div class="row">
 
-    <div class="col-xs-offset-1 col-md-offset-1 col-xs-5 col-md-2">
-      Are you a local resident of <%= @city.title %>?
-    </div>
-
-    <select class="col-xs-offset-1 col-md-offset-0 col-xs-5 col-md-1 opt-choice">
-      <option value="yes">Yes</option>
-      <option value="no">No</option>
-    </select>
-
-
-    <div class="enter-city hidden">
-      <div class="col-xs-offset-1 col-md-offset-2 col-xs-5 col-md-2">
-        If No, can you tell us from where you are from?
+      <div class="col-xs-offset-1 col-md-offset-1 col-xs-5 col-md-2">
+        Are you a local resident of <%= @city.title %>?
       </div>
-      <div class="col-xs-offset-1 col-md-offset-0 col-xs-5 col-md-3">
-        <input type="text" class="col-md-12" placeholder="Your place"></input>
+
+        <select id="local-resident-sw" class="col-xs-offset-1 col-md-offset-0 col-xs-5 col-md-1 opt-choice">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+
+
+      <div class="enter-city hidden">
+        <div class="col-xs-offset-1 col-md-offset-2 col-xs-5 col-md-2">
+          If No, can you tell us from where you are from?
+        </div>
+        <div class="col-xs-offset-1 col-md-offset-0 col-xs-5 col-md-3">
+          <input type="text" id="non-local-resident-location" class="col-md-12" placeholder="Your place"></input>
+        </div>
       </div>
-    </div>
   </div>
 
   <div class="row">
     <div class="col-md-offset-1 col-md-10">
       <div id="locatormap"></div>
       <% if !@city.sub_cities.nil? %>
-          <div id="user-selected-locality" class="menu-ui">
-            <% @city.sub_cities.each do |sub_city| %>
-                <a href="#" data-position="<%= sub_city['geometry']['coordinates'].reverse.join(",") %>" data-city="<%= sub_city['properties']['title'] %>" data-state="<%= sub_city['properties']['state'] %>"><%= sub_city['properties']['title'] %></a>
-            <% end %>
-          </div>
+        <div id="user-selected-locality" class="menu-ui">
+          <% @city.sub_cities.each do |sub_city| %>
+            <a href="#" data-position="<%= sub_city['geometry']['coordinates'].reverse.join(",") %>" data-city="<%= sub_city['properties']['title'] %>" data-state="<%= sub_city['properties']['state'] %>"><%= sub_city['properties']['title'] %></a>
+          <% end %>
+        </div>
       <% end %>
 
       <div class="frequencyContainer">
@@ -168,7 +168,7 @@
     <div class="col-xs-offset-1 col-xs-10 col-md-offset-0 col-md-3">
       <div class="bigButton orangeButton subscribeButton">subscribe</div>
     </div>
-    <div>
+  <div>
 </section>
 
 <section id="confirmation" class="container-fluid" style="display:none">

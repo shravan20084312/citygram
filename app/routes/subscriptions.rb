@@ -23,6 +23,8 @@ module Citygram::Routes
         optional :phone_number, type: String
         optional :email_address, type: String
         optional :webhook_url, type: String
+        optional :local_resident_sw, type: Integer
+        optional :non_local_resident_location, type: String
         mutually_exclusive :phone_number, :email_address, :webhook_url
       end
     end
